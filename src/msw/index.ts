@@ -4,7 +4,7 @@ import { matchPathParams } from "./path_params";
 import { ResolverFn } from "./resolver";
 import { matchSearchParams } from "./search_params";
 
-import { http as mswHTTP, HttpRequestHandler, HttpResponse, HttpResponseResolver, passthrough } from "msw";
+import { http as mswHTTP, HttpRequestHandler, HttpResponse, HttpResponseResolver } from "msw";
 
 class Resolver {
   private readonly handler: HttpRequestHandler;
@@ -60,7 +60,7 @@ class Resolver {
         const res = await fn(args);
 
         if (res === false) {
-          return passthrough();
+          return;
         }
 
         if (res !== true) {
