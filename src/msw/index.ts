@@ -11,9 +11,16 @@ class Resolver {
 
   private readonly resolvers: ResolverFn[];
 
+  private url: string = "";
+
   constructor(handler: HttpRequestHandler) {
     this.handler = handler;
     this.resolvers = [];
+  }
+
+  withURL(url: string): this {
+    this.url = url;
+    return this;
   }
 
   resolver(fn: ResolverFn, errorResponse?: HttpResponse<any>): this {
@@ -54,8 +61,8 @@ class Resolver {
     return this.resolver(async ({ request }) => matchSearchParams(request, expect, strict), errorResponse);
   }
 
-  resolve(path: string, resolver: HttpResponseResolver): ReturnType<typeof this.handler> {
-    return this.handler(path, async (args) => {
+  resolve(resolver: HttpResponseResolver): ReturnType<typeof this.handler> {
+    return this.handler(this.url, async (args) => {
       for (const fn of this.resolvers) {
         const res = await fn(args);
 
@@ -74,12 +81,12 @@ class Resolver {
 }
 
 export const http = {
-  all: new Resolver(mswHTTP.all),
-  head: new Resolver(mswHTTP.head),
-  get: new Resolver(mswHTTP.get),
-  post: new Resolver(mswHTTP.post),
-  put: new Resolver(mswHTTP.put),
-  delete: new Resolver(mswHTTP.delete),
-  patch: new Resolver(mswHTTP.patch),
-  options: new Resolver(mswHTTP.options),
+  all: (url: string) => new Resolver(mswHTTP.all).withURL(url),
+  head: (url: string) => new Resolver(mswHTTP.head).withURL(url),
+  get: (url: string) => new Resolver(mswHTTP.get).withURL(url),
+  post: (url: string) => new Resolver(mswHTTP.post).withURL(url),
+  put: (url: string) => new Resolver(mswHTTP.put).withURL(url),
+  delete: (url: string) => new Resolver(mswHTTP.delete).withURL(url),
+  patch: (url: string) => new Resolver(mswHTTP.patch).withURL(url),
+  options: (url: string) => new Resolver(mswHTTP.options).withURL(url),
 };
