@@ -9,9 +9,9 @@
   "license": "AGPL-3.0",
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "types": "./dist/index.d.ts"
+    "./msw": {
+      "import": "./dist/msw/index.es.js",
+      "types": "./dist/msw/index.d.ts"
     }
   },
   "files": [
