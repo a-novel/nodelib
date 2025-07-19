@@ -4,7 +4,7 @@ import { matchPathParams } from "./path_params";
 import { ResolverFn } from "./resolver";
 import { matchSearchParams } from "./search_params";
 
-import { http as mswHTTP, HttpRequestHandler, HttpResponse, HttpResponseResolver } from "msw";
+import { http as mswHTTP, HttpRequestHandler, HttpResponse, HttpResponseResolver, RequestHandlerOptions } from "msw";
 
 class Resolver {
   private readonly handler: HttpRequestHandler;
@@ -12,6 +12,7 @@ class Resolver {
   private readonly resolvers: ResolverFn[];
 
   private url: string = "";
+  private options?: RequestHandlerOptions;
 
   constructor(handler: HttpRequestHandler) {
     this.handler = handler;
@@ -20,6 +21,11 @@ class Resolver {
 
   withURL(url: string): this {
     this.url = url;
+    return this;
+  }
+
+  withOptions(options?: RequestHandlerOptions): this {
+    this.options = options;
     return this;
   }
 
@@ -62,31 +68,38 @@ class Resolver {
   }
 
   resolve(resolver: HttpResponseResolver): ReturnType<typeof this.handler> {
-    return this.handler(this.url, async (args) => {
-      for (const fn of this.resolvers) {
-        const res = await fn(args);
+    return this.handler(
+      this.url,
+      async (args) => {
+        for (const fn of this.resolvers) {
+          const res = await fn(args);
 
-        if (res === false) {
-          return;
+          if (res === false) {
+            return;
+          }
+
+          if (res !== true) {
+            return res;
+          }
         }
 
-        if (res !== true) {
-          return res;
-        }
-      }
-
-      return resolver(args);
-    });
+        return resolver(args);
+      },
+      this.options
+    );
   }
 }
 
 export const http = {
-  all: (url: string) => new Resolver(mswHTTP.all).withURL(url),
-  head: (url: string) => new Resolver(mswHTTP.head).withURL(url),
-  get: (url: string) => new Resolver(mswHTTP.get).withURL(url),
-  post: (url: string) => new Resolver(mswHTTP.post).withURL(url),
-  put: (url: string) => new Resolver(mswHTTP.put).withURL(url),
-  delete: (url: string) => new Resolver(mswHTTP.delete).withURL(url),
-  patch: (url: string) => new Resolver(mswHTTP.patch).withURL(url),
-  options: (url: string) => new Resolver(mswHTTP.options).withURL(url),
+  all: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.all).withURL(url).withOptions(options),
+  head: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.head).withURL(url).withOptions(options),
+  get: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.get).withURL(url).withOptions(options),
+  post: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.post).withURL(url).withOptions(options),
+  put: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.put).withURL(url).withOptions(options),
+  delete: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.delete).withURL(url).withOptions(options),
+  patch: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.patch).withURL(url).withOptions(options),
+  options: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.options).withURL(url).withOptions(options),
 };
