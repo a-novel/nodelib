@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    rebase-strategy: auto
+    open-pull-requests-limit: 25
+    directory: "/"
+    schedule:
+      interval: daily
+  - package-ecosystem: "github-actions"
+    rebase-strategy: auto
+    open-pull-requests-limit: 25
+    directory: "/"
+    schedule:
+      interval: daily
