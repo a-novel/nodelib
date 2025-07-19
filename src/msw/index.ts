@@ -50,8 +50,8 @@ class Resolver {
     return this.resolver(async ({ params }) => matchPathParams(params, expect), errorResponse);
   }
 
-  searchParams(expect: Parameters<typeof matchSearchParams>[1], errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ request }) => matchSearchParams(request, expect), errorResponse);
+  searchParams(expect: Parameters<typeof matchSearchParams>[1], strict?: boolean, errorResponse?: HttpResponse<any>) {
+    return this.resolver(async ({ request }) => matchSearchParams(request, expect, strict), errorResponse);
   }
 
   resolve(path: string, resolver: HttpResponseResolver): ReturnType<typeof this.handler> {
