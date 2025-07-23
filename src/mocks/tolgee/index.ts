@@ -2,7 +2,7 @@ import { vi } from "vitest";
 
 const mergeKeyAndNs = (key: string, ns?: string | null) => (ns ? `${ns}:${key}` : key);
 
-vi.mock("@tolgee/react", async (importOriginal: () => any) => {
+export const tolgeeMock = async (importOriginal: () => any) => {
   const original = await importOriginal();
 
   return {
@@ -19,4 +19,4 @@ vi.mock("@tolgee/react", async (importOriginal: () => any) => {
       getPendingLanguage: vi.fn().mockImplementation(() => "en"),
     })),
   };
-});
+};
