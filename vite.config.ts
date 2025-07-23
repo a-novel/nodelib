@@ -7,14 +7,31 @@ export default defineConfig({
     lib: {
       entry: {
         msw: "src/msw/index.ts",
+        "test/e2e": "src/test/e2e/index.ts",
+        "test/form": "src/test/form/index.ts",
+        "mocks/tolgee": "src/mocks/tolgee/index.ts",
+        "mocks/query_client": "src/mocks/query_client/index.ts",
       },
       name,
       formats: ["es"],
-      fileName: (format, entryName) =>
-        entryName === "index" ? `index.${format}.js` : `${entryName}/index.${format}.js`,
     },
+    ssr: true,
     sourcemap: true,
     rollupOptions: {
+      input: {
+        msw: "src/msw/index.ts",
+        "test/e2e": "src/test/e2e/index.ts",
+        "test/form": "src/test/form/index.ts",
+        "mocks/tolgee": "src/mocks/tolgee/index.ts",
+        "mocks/query_client": "src/mocks/query_client/index.ts",
+      },
+      output: {
+        format: "es",
+        entryFileNames: (chunkInfo) => {
+          const entryName = chunkInfo.name === "index" ? "index" : `${chunkInfo.name}/index`;
+          return `${entryName}.es.js`;
+        },
+      },
       external: Object.keys(peerDependencies),
     },
   },

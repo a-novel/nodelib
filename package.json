@@ -12,6 +12,22 @@
     "./msw": {
       "import": "./dist/msw/index.es.js",
       "types": "./dist/msw/index.d.ts"
+    },
+    "./test/e2e": {
+      "import": "./dist/test/e2e/index.es.js",
+      "types": "./dist/test/e2e/index.d.ts"
+    },
+    "./test/form": {
+      "import": "./dist/test/form/index.es.js",
+      "types": "./dist/test/form/index.d.ts"
+    },
+    "./mocks/tolgee": {
+      "import": "./dist/mocks/tolgee/index.es.js",
+      "types": "./dist/mocks/tolgee/index.d.ts"
+    },
+    "./mocks/query_client": {
+      "import": "./dist/mocks/query_client/index.es.js",
+      "types": "./dist/mocks/query_client/index.d.ts"
     }
   },
   "files": [
