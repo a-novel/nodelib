@@ -25,10 +25,11 @@ export async function derivePort(input: string): Promise<number> {
   const portFile = `port-${input}.txt`;
 
   if (!fs.existsSync(portFile)) {
-    await fs.promises.writeFile(portFile, (await getRandomPort()).toString());
+    const portNumber = await getRandomPort();
+    await fs.promises.writeFile(portFile, portNumber.toString());
+    console.info(`Mapped "${input}" to port ${portNumber}`);
+    return portNumber;
   }
 
-  const portNumber = parseInt(await fs.promises.readFile(portFile, "utf-8"), 10);
-  console.info(`Mapped "${input}" to port ${portNumber}`);
-  return portNumber;
+  return parseInt(await fs.promises.readFile(portFile, "utf-8"), 10);
 }
