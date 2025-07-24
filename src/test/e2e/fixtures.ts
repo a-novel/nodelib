@@ -56,10 +56,10 @@ export function newAgoraPwFixture({ coverage = {} }: AgoraPwFixtureConfig) {
     exclude = [],
   } = coverage;
 
-  const matchCoverageFile = (filePath: string): boolean => {
+  const excludeCoverageFile = (filePath: string): boolean => {
     return (
-      !exclude.some((pattern) => path.matchesGlob(filePath, pattern)) &&
-      include.some((pattern) => path.matchesGlob(filePath, pattern))
+      exclude.some((pattern) => path.matchesGlob(filePath, pattern)) ||
+      !include.some((pattern) => path.matchesGlob(filePath, pattern))
     );
   };
 
@@ -78,7 +78,7 @@ export function newAgoraPwFixture({ coverage = {} }: AgoraPwFixtureConfig) {
       if (!entry.source) continue;
 
       // Only look for files in the src directory.
-      const converter = v8toIstanbul("", 0, { source: entry.source }, matchCoverageFile);
+      const converter = v8toIstanbul("", 0, { source: entry.source }, excludeCoverageFile);
       await converter.load();
 
       const report = converter.toIstanbul();
