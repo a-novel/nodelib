@@ -1,0 +1,92 @@
+name: "@a-novel/nodelib"
+version: 0.7.3
+type: module
+license: AGPL-3.0
+private: false
+packageManager: pnpm@10.13.1
+engines: { node: ">=23.11.0", npm: ">=10.9.2" }
+pnpm:
+  onlyBuiltDependencies:
+    - esbuild
+    - msw
+scripts:
+  build: |
+    rm -rf ./dist && vite build
+    tsc --build tsconfig.build.json
+  format: prettier --write . --config prettier.config.ts
+  lint: |
+    pnpm dlx eslint .
+    tsc
+    prettier --check . --config prettier.config.ts
+  publish:major: |
+    pnpm version major 
+    git push --follow-tags
+  publish:minor: |
+    pnpm version minor
+    git push --follow-tags
+  publish:patch: |
+    pnpm version patch
+    git push --follow-tags
+  preinstall: npx only-allow pnpm
+publishConfig:
+  registry: https://npm.pkg.github.com
+  directory: dist
+repository:
+  type: git
+  url: https://github.com/a-novel/nodelib.git
+exports:
+  ./msw:
+    import: ./msw/index.es.js
+    types: ./msw/index.d.ts
+  ./test/e2e:
+    import: ./test/e2e/index.es.js
+    types: ./test/e2e/index.d.ts
+  ./test/form:
+    import: ./test/form/index.es.js
+    types: ./test/form/index.d.ts
+  ./mocks/tolgee:
+    import: ./mocks/tolgee/index.es.js
+    types: ./mocks/tolgee/index.d.ts
+  ./mocks/query_client:
+    import: ./mocks/query_client/index.es.js
+    types: ./mocks/query_client/index.d.ts
+dependencies:
+  get-port-please: ^3.2.0
+  lodash-es: ^4.17.21
+devDependencies:
+  "@eslint/config-helpers": ^0.3.0
+  "@eslint/js": ^9.31.0
+  "@msw/playwright": ^0.4.2
+  "@playwright/test": ^1.54.1
+  "@tanstack/react-query": ^5.83.0
+  "@testing-library/react": ^16.3.0
+  "@trivago/prettier-plugin-sort-imports": ^5.2.2
+  "@types/js-yaml": ^4.0.9
+  "@types/lodash-es": ^4.17.12
+  "@types/node": ^24.1.0
+  "@vitest/coverage-v8": 3.2.4
+  eslint: ^9.31.0
+  eslint-config-prettier: ^10.1.8
+  eslint-plugin-prettier: ^5.5.3
+  globals: ^16.3.0
+  js-yaml: ^4.1.0
+  msw: ^2.10.4
+  playwright: ^1.54.1
+  prettier: ^3.6.2
+  type-fest: ^4.41.0
+  typescript: ^5.8.3
+  typescript-eslint: ^8.38.0
+  v8-to-istanbul: ^9.3.0
+  vite: ^7.0.6
+  vite-plugin-static-copy: ^3.1.1
+  vitest: ^3.2.4
+peerDependencies:
+  "@msw/playwright": ^0.4.2
+  "@playwright/test": ^1.54.1
+  "@tanstack/react-query": ^5.83.0
+  "@testing-library/react": ^16.3.0
+  js-yaml: ^4.1.0
+  msw: ^2.10.4
+  playwright: ^1.54.1
+  v8-to-istanbul: ^9.3.0
+  vitest: ^3.2.4
