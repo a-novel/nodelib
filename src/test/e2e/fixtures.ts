@@ -1,6 +1,5 @@
 import { createNetworkFixture, type NetworkFixture } from "@msw/playwright";
 import { test as testBase } from "@playwright/test";
-import { execSync } from "child_process";
 import * as crypto from "crypto";
 import * as fs from "fs";
 import * as path from "path";
@@ -89,14 +88,6 @@ export function newAgoraPwFixture({ coverage = {} }: AgoraPwFixtureConfig) {
       converter.applyCoverage(entry.functions);
       fs.writeFileSync(path.join(tempDir, `playwright_coverage_${generateUUID()}.json`), JSON.stringify(report));
     }
-  });
-
-  test.afterAll(async () => {
-    console.log("-> \x1b[34m%s\x1b[0m", "Generating coverage report...");
-    // Exec nyc command.
-    const command = `npx nyc report --reporter=json --report-dir="${reportDir}" --temp-dir=${tempDir} --exclude-after-remap=false`;
-    const res = execSync(command);
-    console.log("\x1b[32m%s\x1b[0m", "✓", "Coverage generated successfully:\n", res.toString().trim());
   });
 
   return test;
