@@ -6,6 +6,12 @@ permissions:
   pull-requests: write
 
 jobs:
+  tmp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: user
+        run: echo "User ${{ github.event.pull_request.user.login }}"
+
   dependabot:
     runs-on: ubuntu-latest
     permissions:
