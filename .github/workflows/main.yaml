@@ -19,8 +19,7 @@ jobs:
           pat: ${{ secrets.ACTION_PAT }}
 
   build:
-    needs:
-      - lint
+    needs: [lint]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -29,3 +28,15 @@ jobs:
       - uses: a-novel-kit/workflows/node-actions/build-node@master
         with:
           pat: ${{ secrets.ACTION_PAT }}
+
+  auto-approve:
+    needs: [build]
+    if: ${{ inputs.author == 'renovate[bot]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: a-novel-kit/workflows/generic-actions/approve-bot@master
+        with:
+          pull_request: ${{ github.event.pull_request.html_url }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
