@@ -6,18 +6,12 @@ permissions:
   pull-requests: write
 
 jobs:
-  tmp:
-    runs-on: ubuntu-latest
-    steps:
-      - name: user
-        run: echo "User ${{ github.event.pull_request.user.login }}"
-
   dependabot:
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
-    if: github.event.pull_request.user.login == 'renovate[bot]'
+    if: github.event.pull_request.user.login == 'renovate[bot]' || github.event.pull_request.user.login == 'kushuh'
     steps:
       - uses: a-novel-kit/workflows/generic-actions/approve-bot@master
         with:

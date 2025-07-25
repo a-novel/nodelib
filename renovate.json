@@ -2,7 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "assignAutomerge": true,
   "assignees": ["kushuh"],
-  "autoApprove": true,
   "postUpgradeTasks": {
     "commands": ["pnpm i --frozen-lockfile", "pnpm format"],
     "executionMode": "update"
