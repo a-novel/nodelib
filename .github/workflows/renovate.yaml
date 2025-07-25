@@ -1,0 +1,20 @@
+name: run renovate
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v43.0.4
+        with:
+          token: ${{ secrets.ACTION_PAT }}
+        env:
+          RENOVATE_ALLOWED_COMMANDS: '["^pnpm format$"]'
+          RENOVATE_REPOSITORIES: "['a-novel/nodelib']"
+          LOG_LEVEL: debug

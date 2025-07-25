@@ -1,5 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "assignAutomerge": true,
+  "assignees": ["kushuh"],
+  "reviewers": ["kushuh"],
+  "autoApprove": true,
   "postUpgradeTasks": {
     "commands": ["pnpm format"],
     "executionMode": "update"
