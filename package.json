@@ -86,7 +86,7 @@
     "v8-to-istanbul": "^9.3.0",
     "vitest": "^3.2.4"
   },
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": ">=23.11.0",
     "npm": ">=10.9.2"
