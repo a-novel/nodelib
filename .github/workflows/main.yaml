@@ -16,7 +16,8 @@ jobs:
     steps:
       - uses: a-novel-kit/workflows/node-actions/lint-node@master
         with:
-          pat: ${{ secrets.ACTION_PAT }}
+          app_private_key: ${{ secrets.DEPENDENCY_BOT_PRIVATE_KEY }}
+          app_id: ${{ vars.DEPENDENCY_BOT_ID }}
 
   build:
     needs: [lint]
@@ -27,4 +28,5 @@ jobs:
     steps:
       - uses: a-novel-kit/workflows/node-actions/build-node@master
         with:
-          pat: ${{ secrets.ACTION_PAT }}
+          app_private_key: ${{ secrets.DEPENDENCY_BOT_PRIVATE_KEY }}
+          app_id: ${{ vars.DEPENDENCY_BOT_ID }}
