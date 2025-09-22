@@ -52,7 +52,7 @@
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@eslint/config-helpers": "^0.3.0",
+    "@eslint/config-helpers": "^0.4.0",
     "@eslint/js": "^9.31.0",
     "@msw/playwright": "^0.4.2",
     "@playwright/test": "^1.54.1",
