@@ -29,7 +29,7 @@ importers:
         version: 1.55.0
       '@tanstack/react-query':
         specifier: ^5.83.0
-        version: 5.90.1(react@19.1.0)
+        version: 5.90.2(react@19.1.0)
       '@testing-library/react':
         specifier: ^16.3.0
         version: 16.3.0(@testing-library/dom@10.4.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -570,11 +570,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@tanstack/query-core@5.90.1':
-    resolution: {integrity: sha512-hmi8i+mWP3QnD8yq3+6LWri9IEZAlFbpbM/UVB+TJtp5RIxUfzuARqyW39b+HCfBKKnFKSHWMXNB5YN8lo/E/Q==}
+  '@tanstack/query-core@5.90.2':
+    resolution: {integrity: sha512-k/TcR3YalnzibscALLwxeiLUub6jN5EDLwKDiO7q5f4ICEoptJ+n9+7vcEFy5/x/i6Q+Lb/tXrsKCggf5uQJXQ==}
 
-  '@tanstack/react-query@5.90.1':
-    resolution: {integrity: sha512-tN7Fx2HuV2SBhl+STgL8enbfSInRoNU1B1+5LIU62klcMElE4lFzol4aReuRSUeD6ntzPayK0KrM6w9+ZlHEkw==}
+  '@tanstack/react-query@5.90.2':
+    resolution: {integrity: sha512-CLABiR+h5PYfOWr/z+vWFt5VsOA2ekQeRQBFSKlcoW6Ndx/f8rfyVmq4LbgOM4GG2qtxAxjLYLOpCNTYm4uKzw==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -2041,11 +2041,11 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.0':
     optional: true
 
-  '@tanstack/query-core@5.90.1': {}
+  '@tanstack/query-core@5.90.2': {}
 
-  '@tanstack/react-query@5.90.1(react@19.1.0)':
+  '@tanstack/react-query@5.90.2(react@19.1.0)':
     dependencies:
-      '@tanstack/query-core': 5.90.1
+      '@tanstack/query-core': 5.90.2
       react: 19.1.0
 
   '@testing-library/dom@10.4.0':
