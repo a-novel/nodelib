@@ -84,7 +84,7 @@
     "msw": "^2.10.4",
     "playwright": "^1.54.1",
     "v8-to-istanbul": "^9.3.0",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4 || ^4.0.0"
   },
   "packageManager": "pnpm@10.19.0",
   "engines": {
