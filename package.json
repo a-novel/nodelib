@@ -61,7 +61,7 @@
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^24.1.0",
-    "@vitest/coverage-v8": "4.0.1",
+    "@vitest/coverage-v8": "4.0.2",
     "eslint": "^9.31.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.3",
