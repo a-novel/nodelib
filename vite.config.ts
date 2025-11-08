@@ -24,6 +24,7 @@ export default defineConfig({
         "test/form": "src/test/form/index.ts",
         "mocks/tolgee": "src/mocks/tolgee/index.ts",
         "mocks/query_client": "src/mocks/query_client/index.ts",
+        http: "src/http/index.ts",
       },
       output: {
         format: "es",
