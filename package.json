@@ -17,6 +17,10 @@
       "import": "./dist/http/index.es.js",
       "types": "./dist/http/index.d.ts"
     },
+    "./http/test": {
+      "import": "./dist/http/test/index.es.js",
+      "types": "./dist/http/test/index.d.ts"
+    },
     "./test/e2e": {
       "import": "./dist/test/e2e/index.es.js",
       "types": "./dist/test/e2e/index.d.ts"
