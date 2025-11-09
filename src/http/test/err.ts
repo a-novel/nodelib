@@ -1,10 +1,9 @@
-import { HttpError, isHttpStatusError } from "../error";
-
-import { expect } from "vitest";
+import { isHttpStatusError } from "../error";
 
 export async function expectStatus(callback: Promise<any>, status: number) {
   const res = await callback.catch((err) => err);
 
-  expect(res).toBeInstanceOf(HttpError);
-  expect(isHttpStatusError(res, status)).toBeTruthy();
+  if (!isHttpStatusError(res, status)) {
+    throw new Error(`expected error with status ${status}, got: ${res.message ?? res}`);
+  }
 }
