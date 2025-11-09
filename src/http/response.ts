@@ -1,13 +1,13 @@
-import { HttpError } from "./error";
+import { newHttpError } from "./error";
 
 import type { ZodType } from "zod";
 
 /**
  * Check the response status, and throw an HttpError if not ok (2xx).
  */
-export function handleHttpResponse(response: Response): Response {
+export async function handleHttpResponse(response: Response): Promise<Response> {
   if (!response.ok) {
-    throw new HttpError(response);
+    throw await newHttpError(response);
   }
   return response;
 }

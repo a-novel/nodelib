@@ -3,24 +3,22 @@
  */
 export class HttpError extends Error {
   private readonly _status: number;
-  private readonly _text: Promise<string>;
 
-  constructor(response: Response) {
-    super(response.statusText);
+  constructor(status: number, text: string) {
+    super(`request failed with status ${status}}: ${text}`);
 
     this.name = "HttpError";
-
-    this._status = response.status;
-    this._text = response.text();
+    this._status = status;
   }
 
   get status() {
     return this._status;
   }
+}
 
-  get text() {
-    return this._text;
-  }
+export async function newHttpError(response: Response): Promise<HttpError> {
+  const text = await response.text().catch((err) => `failed to decode response: ${err.message}`);
+  return new HttpError(response.status, text);
 }
 
 export function isHttpError(error: unknown): error is HttpError {
