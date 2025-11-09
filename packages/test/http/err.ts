@@ -1,4 +1,4 @@
-import { isHttpStatusError } from "../error";
+import { isHttpStatusError } from "@a-novel/nodelib/browser/http";
 
 export async function expectStatus(callback: Promise<any>, status: number) {
   const res = await callback.catch((err) => err);

@@ -1,9 +1,4 @@
-# Node lib
-
-![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/a-novel/nodelib)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/a-novel/nodelib)
-
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/a-novel/nodelib/main.yaml)
+# Node (browser)
 
 ## Installation
 
@@ -24,6 +19,5 @@ Then, install the package using pnpm:
 # pnpm config set auto-install-peers true
 #  Or
 # pnpm config set auto-install-peers true --location project
-pnpm add -D @a-novel/nodelib/test
 pnpm add @a-novel/nodelib/browser
 ```
