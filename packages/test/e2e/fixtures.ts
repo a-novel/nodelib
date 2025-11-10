@@ -1,8 +1,8 @@
 import { createNetworkFixture, type NetworkFixture } from "@msw/playwright";
-import { test as testBase } from "@playwright/test";
 import * as crypto from "crypto";
 import * as fs from "fs";
 import * as path from "path";
+import { test as testBase } from "playwright/test";
 import v8toIstanbul from "v8-to-istanbul";
 
 export function generateUUID(): string {

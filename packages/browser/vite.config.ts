@@ -6,11 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        msw: "src/msw/index.ts",
-        "test/e2e": "src/test/e2e/index.ts",
-        "test/form": "src/test/form/index.ts",
-        "mocks/tolgee": "src/mocks/tolgee/index.ts",
-        "mocks/query_client": "src/mocks/query_client/index.ts",
+        http: "packages/browser/http/index.ts",
       },
       name,
       formats: ["es"],
@@ -19,13 +15,7 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       input: {
-        msw: "src/msw/index.ts",
-        "test/e2e": "src/test/e2e/index.ts",
-        "test/form": "src/test/form/index.ts",
-        "mocks/tolgee": "src/mocks/tolgee/index.ts",
-        "mocks/query_client": "src/mocks/query_client/index.ts",
-        http: "src/http/index.ts",
-        "http/test": "src/http/test/index.ts",
+        http: "packages/browser/http/index.ts",
       },
       output: {
         format: "es",
