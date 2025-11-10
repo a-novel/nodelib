@@ -1,5 +1,5 @@
 {
-  "name": "@a-novel/nodelib/browser",
+  "name": "@a-novel/nodelib-browser",
   "version": "0.8.3",
   "private": false,
   "repository": {
@@ -19,11 +19,6 @@
     "README.md",
     "LICENSE"
   ],
-  "scripts": {
-    "publish:major": "pnpm version major && git push --follow-tags",
-    "publish:minor": "pnpm version minor && git push --follow-tags",
-    "publish:patch": "pnpm version patch && git push --follow-tags"
-  },
   "devDependencies": {
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",

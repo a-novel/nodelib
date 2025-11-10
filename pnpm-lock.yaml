@@ -82,8 +82,8 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12
     devDependencies:
-      '@a-novel/nodelib/browser':
-        specifier: 'workspace:'
+      '@a-novel/nodelib-browser':
+        specifier: ^0.8.3
         version: link:../browser
       '@tanstack/react-query':
         specifier: ^5.83.0

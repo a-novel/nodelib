@@ -1,15 +1,15 @@
 {
   "name": "nodelib-project",
-  "version": "0.0.0",
-  "private": false,
+  "version": "0.8.3",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a-novel/nodelib.git"
+  },
   "license": "AGPL-3.0",
   "type": "module",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
   "workspaces": [
+    ".",
     "packages/*"
   ],
   "scripts": {
@@ -22,6 +22,9 @@
     "lint:eslint": "pnpm dlx eslint .",
     "lint:stylecheck": "prettier --check . --config prettier.config.ts",
     "lint:typecheck": "tsc",
+    "publish:major": "pnpm version major --workspaces --workspaces-update=false --no-git-tag-version && git add -A && git commit -m \"v$(node -p \"require('./package.json').version\")\" && git tag v$(node -p \"require('./package.json').version\") && git push && git push --tags",
+    "publish:minor": "pnpm version minor --workspaces --workspaces-update=false --no-git-tag-version && git add -A && git commit -m \"v$(node -p \"require('./package.json').version\")\" && git tag v$(node -p \"require('./package.json').version\") && git push && git push --tags",
+    "publish:patch": "pnpm version patch --workspaces --workspaces-update=false --no-git-tag-version && git add -A && git commit -m \"v$(node -p \"require('./package.json').version\")\" && git tag v$(node -p \"require('./package.json').version\") && git push && git push --tags",
     "types:browser": "tsc --build packages/browser/tsconfig.build.json",
     "types:node": "tsc --build packages/test/tsconfig.build.json"
   },
@@ -43,6 +46,9 @@
   "engines": {
     "node": ">=23.11.0",
     "npm": ">=10.9.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
