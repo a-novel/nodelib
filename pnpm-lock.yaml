@@ -66,6 +66,9 @@ importers:
 
   packages/test:
     dependencies:
+      '@a-novel/nodelib-browser':
+        specifier: '*'
+        version: link:../browser
       '@msw/playwright':
         specifier: ^0.4.2
         version: 0.4.2(msw@2.12.1(@types/node@24.10.0)(typescript@5.9.3))
@@ -82,9 +85,6 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12
     devDependencies:
-      '@a-novel/nodelib-browser':
-        specifier: ^0.8.3
-        version: link:../browser
       '@tanstack/react-query':
         specifier: ^5.83.0
         version: 5.90.7(react@19.2.0)
