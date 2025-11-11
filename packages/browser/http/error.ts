@@ -22,7 +22,7 @@ export async function newHttpError(response: Response): Promise<HttpError> {
 }
 
 export function isHttpError(error: unknown): error is HttpError {
-  return error instanceof HttpError;
+  return error instanceof Error && error.name === "HttpError";
 }
 
 /**
