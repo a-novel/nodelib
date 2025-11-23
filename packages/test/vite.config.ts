@@ -16,7 +16,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        msw: "packages/test/mswHelpers/index.ts",
+        mswHelpers: "packages/test/mswHelpers/index.ts",
         http: "packages/test/http/index.ts",
         "test/e2e": "packages/test/e2e/index.ts",
         "test/form": "packages/test/form/index.ts",
@@ -30,7 +30,7 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       input: {
-        msw: "packages/test/mswHelpers/index.ts",
+        mswHelpers: "packages/test/mswHelpers/index.ts",
         e2e: "packages/test/e2e/index.ts",
         form: "packages/test/form/index.ts",
         "mocks/tolgee": "packages/test/mocks/tolgee/index.ts",
