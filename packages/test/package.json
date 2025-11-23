@@ -10,8 +10,8 @@
   "type": "module",
   "exports": {
     "./msw": {
-      "import": "./dist/msw/index.es.js",
-      "types": "./dist/msw/index.d.ts"
+      "import": "./dist/mswHelpers/index.es.js",
+      "types": "./dist/mswHelpers/index.d.ts"
     },
     "./http": {
       "import": "./dist/http/index.es.js",
