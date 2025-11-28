@@ -10,28 +10,28 @@
   "type": "module",
   "exports": {
     "./msw": {
-      "import": "./dist/mswHelpers/index.es.js",
-      "types": "./dist/mswHelpers/index.d.ts"
+      "types": "./dist/mswHelpers/index.d.ts",
+      "import": "./dist/mswHelpers/index.es.js"
     },
     "./http": {
-      "import": "./dist/http/index.es.js",
-      "types": "./dist/http/index.d.ts"
+      "types": "./dist/http/index.d.ts",
+      "import": "./dist/http/index.es.js"
     },
     "./e2e": {
-      "import": "./dist/e2e/index.es.js",
-      "types": "./dist/e2e/index.d.ts"
+      "types": "./dist/e2e/index.d.ts",
+      "import": "./dist/e2e/index.es.js"
     },
     "./form": {
-      "import": "./dist/form/index.es.js",
-      "types": "./dist/form/index.d.ts"
+      "types": "./dist/form/index.d.ts",
+      "import": "./dist/form/index.es.js"
     },
     "./mocks/tolgee": {
-      "import": "./dist/mocks/tolgee/index.es.js",
-      "types": "./dist/mocks/tolgee/index.d.ts"
+      "types": "./dist/mocks/tolgee/index.d.ts",
+      "import": "./dist/mocks/tolgee/index.es.js"
     },
     "./mocks/query_client": {
-      "import": "./dist/mocks/query_client/index.es.js",
-      "types": "./dist/mocks/query_client/index.d.ts"
+      "types": "./dist/mocks/query_client/index.d.ts",
+      "import": "./dist/mocks/query_client/index.es.js"
     }
   },
   "files": [
