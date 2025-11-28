@@ -1,5 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "postUpdateOptions": ["pnpmDedupe"],
-  "extends": ["config:recommended"]
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "postUpgradeTasks": {
+        "commands": ["pnpm i --frozen-lockfile && pnpm format"],
+        "executionMode": "branch"
+      }
+    }
+  ]
 }
