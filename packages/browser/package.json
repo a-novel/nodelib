@@ -10,8 +10,8 @@
   "type": "module",
   "exports": {
     "./http": {
-      "import": "./dist/http/index.es.js",
-      "types": "./dist/http/index.d.ts"
+      "types": "./dist/http/index.d.ts",
+      "import": "./dist/http/index.es.js"
     }
   },
   "files": [
