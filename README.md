@@ -1,9 +1,19 @@
 # Node lib
 
+Shared Node.js libraries.
+
+[![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/agorastoryverse)](https://twitter.com/agorastoryverse)
+[![Discord](https://img.shields.io/discord/1315240114691248138?logo=discord)](https://discord.gg/rp4Qr8cA)
+
+<hr />
+
 ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/a-novel/nodelib)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/a-novel/nodelib)
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/a-novel/nodelib/main.yaml)
+[![codecov](https://codecov.io/gh/a-novel/nodelib/graph/badge.svg?token=Vyqgkqb9LT)](https://codecov.io/gh/a-novel/nodelib)
+
+![Coverage graph](https://codecov.io/gh/a-novel/nodelib/graphs/sunburst.svg?token=Vyqgkqb9LT)
 
 ## Installation
 

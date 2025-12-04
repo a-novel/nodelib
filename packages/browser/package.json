@@ -12,6 +12,10 @@
     "./http": {
       "types": "./dist/http/index.d.ts",
       "import": "./dist/http/index.es.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.es.js"
     }
   },
   "files": [
@@ -30,7 +34,7 @@
   },
   "packageManager": "pnpm@10.24.0",
   "engines": {
-    "node": ">=23.11.0",
+    "node": ">=24.0.0",
     "npm": ">=10.9.2"
   },
   "publishConfig": {
