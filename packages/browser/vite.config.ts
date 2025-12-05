@@ -7,6 +7,7 @@ export default defineConfig({
     lib: {
       entry: {
         http: "packages/browser/http/index.ts",
+        utils: "packages/browser/utils/index.ts",
       },
       name,
       formats: ["es"],
@@ -16,6 +17,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         http: "packages/browser/http/index.ts",
+        utils: "packages/browser/utils/index.ts",
       },
       output: {
         format: "es",
