@@ -15,7 +15,7 @@
     }
   },
   "files": [
-    "*.ts",
+    "dist",
     "README.md",
     "LICENSE"
   ],
