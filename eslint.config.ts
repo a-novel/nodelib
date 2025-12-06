@@ -5,7 +5,7 @@ import { Eslint } from "@a-novel/nodelib-config";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig(
-  Eslint({
+  ...Eslint({
     ignores: ["**/build/**"],
     gitIgnorePath: path.join(import.meta.dirname, ".gitignore"),
   })
