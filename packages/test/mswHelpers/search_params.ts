@@ -2,13 +2,17 @@ import { HttpResponse } from "msw";
 
 export const matchSearchParams = async (
   request: Request,
-  expect: URLSearchParams | ((req: URLSearchParams) => Promise<boolean | HttpResponse<any>>),
+  expect:
+    | URLSearchParams
+    | ((req: URLSearchParams) => Promise<boolean | HttpResponse<any>>),
   strict?: boolean
 ): Promise<boolean | HttpResponse<any>> => {
   const url = new URL(request.url);
 
   if (typeof expect === "function") {
-    return (expect as (req: URLSearchParams) => Promise<boolean | HttpResponse<any>>)(url.searchParams);
+    return (
+      expect as (req: URLSearchParams) => Promise<boolean | HttpResponse<any>>
+    )(url.searchParams);
   }
 
   for (const expectKey of expect.keys()) {
@@ -16,7 +20,10 @@ export const matchSearchParams = async (
       return false;
     }
 
-    if (expect.getAll(expectKey).sort().join(",") !== url.searchParams.getAll(expectKey).sort().join(",")) {
+    if (
+      expect.getAll(expectKey).sort().join(",") !==
+      url.searchParams.getAll(expectKey).sort().join(",")
+    ) {
       return false;
     }
   }

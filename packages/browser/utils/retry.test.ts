@@ -39,7 +39,10 @@ describe("retry", () => {
       },
       () => "success"
     );
-    const retried = retry(callback.call.bind(callback), { retries: 3, delay: 10 });
+    const retried = retry(callback.call.bind(callback), {
+      retries: 3,
+      delay: 10,
+    });
 
     await expect(retried()).resolves.toBe("success");
     expect(callback.calledTimes).toBe(3);
@@ -78,13 +81,19 @@ describe("retry", () => {
       }
 
       const callback = factory();
-      const retried = retry(callback.call.bind(callback), { retries: 2, delay: 10 });
+      const retried = retry(callback.call.bind(callback), {
+        retries: 2,
+        delay: 10,
+      });
 
       await expect(retried()).rejects.toThrow("fail 2");
       expect(callback.calledTimes).toBe(2);
 
       const callback2 = factory();
-      const retried2 = retry(callback2.call.bind(callback2), { retries: 3, delay: 10 });
+      const retried2 = retry(callback2.call.bind(callback2), {
+        retries: 3,
+        delay: 10,
+      });
 
       await expect(retried2()).resolves.toBe("success");
       expect(callback2.calledTimes).toBe(3);
@@ -102,8 +111,14 @@ describe("retry", () => {
           throw new Error("fail 3");
         }
       );
-      const onFailure = vi.fn((err: unknown) => `failed: ${(err as Error).message}`);
-      const retried = retry(callback.call.bind(callback), { retries: 2, delay: 10, onFailure });
+      const onFailure = vi.fn(
+        (err: unknown) => `failed: ${(err as Error).message}`
+      );
+      const retried = retry(callback.call.bind(callback), {
+        retries: 2,
+        delay: 10,
+        onFailure,
+      });
 
       await expect(retried()).resolves.toBe("failed: fail 2");
       expect(callback.calledTimes).toBe(2);

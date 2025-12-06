@@ -1,0 +1,12 @@
+import path from "node:path";
+
+import { Eslint } from "@a-novel/nodelib-config";
+
+import { defineConfig } from "eslint/config";
+
+export default defineConfig(
+  Eslint({
+    ignores: ["**/build/**"],
+    gitIgnorePath: path.join(import.meta.dirname, ".gitignore"),
+  })
+);

@@ -1,9 +1,9 @@
 import { peerDependencies, name } from "./package.json";
 
-import { defineConfig } from "vite";
-
 import path from "node:path";
 import url from "node:url";
+
+import { defineConfig } from "vite";
 
 const _dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -40,7 +40,8 @@ export default defineConfig({
       output: {
         format: "es",
         entryFileNames: (chunkInfo) => {
-          const entryName = chunkInfo.name === "index" ? "index" : `${chunkInfo.name}/index`;
+          const entryName =
+            chunkInfo.name === "index" ? "index" : `${chunkInfo.name}/index`;
           return `${entryName}.es.js`;
         },
       },

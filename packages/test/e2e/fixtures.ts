@@ -77,7 +77,12 @@ export function newAgoraPwFixture({ coverage = {} }: AgoraPwFixtureConfig) {
       if (!entry.source) continue;
 
       // Only look for files in the src directory.
-      const converter = v8toIstanbul("", 0, { source: entry.source }, excludeCoverageFile);
+      const converter = v8toIstanbul(
+        "",
+        0,
+        { source: entry.source },
+        excludeCoverageFile
+      );
       await converter.load();
 
       const report = converter.toIstanbul();
@@ -86,7 +91,10 @@ export function newAgoraPwFixture({ coverage = {} }: AgoraPwFixtureConfig) {
       if (Object.keys(report).length === 0) continue;
 
       converter.applyCoverage(entry.functions);
-      fs.writeFileSync(path.join(tempDir, `playwright_coverage_${generateUUID()}.json`), JSON.stringify(report));
+      fs.writeFileSync(
+        path.join(tempDir, `playwright_coverage_${generateUUID()}.json`),
+        JSON.stringify(report)
+      );
     }
   });
 

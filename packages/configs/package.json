@@ -1,0 +1,67 @@
+{
+  "name": "@a-novel/nodelib-config",
+  "version": "1.1.1",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-novel/nodelib.git"
+  },
+  "license": "AGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.ts"
+    }
+  },
+  "files": [
+    "*.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "jiti": "^2.6.1"
+  },
+  "peerDependencies": {
+    "@eslint/compat": "^2.0.0",
+    "@eslint/js": "^9.39.1",
+    "@sveltejs/kit": "^2.49.1",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.0",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-storybook": "^10.1.4",
+    "eslint-plugin-svelte": "^3.13.1",
+    "prettier": "^3.7.4",
+    "prettier-plugin-packagejson": "^2.5.20",
+    "prettier-plugin-sql": "^0.19.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0"
+  },
+  "peerDependenciesMeta": {
+    "@sveltejs/kit": {
+      "optional": true
+    },
+    "eslint-plugin-storybook": {
+      "optional": true
+    },
+    "eslint-plugin-svelte": {
+      "optional": true
+    },
+    "prettier-plugin-sql": {
+      "optional": true
+    },
+    "prettier-plugin-svelte": {
+      "optional": true
+    }
+  },
+  "packageManager": "pnpm@10.24.0",
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=10.9.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

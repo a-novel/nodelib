@@ -20,6 +20,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           app_private_key: ${{ secrets.DEPENDENCY_BOT_PRIVATE_KEY }}
           app_id: ${{ vars.DEPENDENCY_BOT_ID }}
+          lint_action: "lint:ci"
 
   test:
     runs-on: ubuntu-latest
@@ -34,6 +35,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           app_private_key: ${{ secrets.DEPENDENCY_BOT_PRIVATE_KEY }}
           app_id: ${{ vars.DEPENDENCY_BOT_ID }}
+          test_action: "test:ci"
 
   report-codecov:
     runs-on: ubuntu-latest
