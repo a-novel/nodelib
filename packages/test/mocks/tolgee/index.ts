@@ -1,6 +1,7 @@
 import { vi } from "vitest";
 
-const mergeKeyAndNs = (key: string, ns?: string | null) => (ns ? `${ns}:${key}` : key);
+const mergeKeyAndNs = (key: string, ns?: string | null) =>
+  ns ? `${ns}:${key}` : key;
 
 export const tolgeeMock = async (importOriginal: () => any) => {
   const original = await importOriginal();
@@ -8,7 +9,8 @@ export const tolgeeMock = async (importOriginal: () => any) => {
   return {
     ...(original as any),
     useTranslate: vi.fn().mockImplementation(() => ({
-      t: (key: string, data: { ns: string }) => JSON.stringify({ key: mergeKeyAndNs(key, data.ns), data }),
+      t: (key: string, data: { ns: string }) =>
+        JSON.stringify({ key: mergeKeyAndNs(key, data.ns), data }),
     })),
     T: ({ keyName, ns }: { keyName: string; ns: string; params: any }) =>
       JSON.stringify({ key: mergeKeyAndNs(keyName, ns) }),

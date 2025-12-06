@@ -1,10 +1,21 @@
-import { matchBodyBytes, matchBodyFormData, matchBodyJSON, matchBodyText } from "./body";
+import {
+  matchBodyBytes,
+  matchBodyFormData,
+  matchBodyJSON,
+  matchBodyText,
+} from "./body";
 import { matchHeaders } from "./headers";
 import { matchPathParams } from "./path_params";
 import { ResolverFn } from "./resolver";
 import { matchSearchParams } from "./search_params";
 
-import { http as mswHTTP, HttpRequestHandler, HttpResponse, HttpResponseResolver, RequestHandlerOptions } from "msw";
+import {
+  http as mswHTTP,
+  HttpRequestHandler,
+  HttpResponse,
+  HttpResponseResolver,
+  RequestHandlerOptions,
+} from "msw";
 
 class Resolver {
   private readonly handler: HttpRequestHandler;
@@ -42,29 +53,72 @@ class Resolver {
     return this;
   }
 
-  bodyJSON(expect: Parameters<typeof matchBodyJSON>[1], errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ request }) => matchBodyJSON(request, expect), errorResponse);
+  bodyJSON(
+    expect: Parameters<typeof matchBodyJSON>[1],
+    errorResponse?: HttpResponse<any>
+  ) {
+    return this.resolver(
+      async ({ request }) => matchBodyJSON(request, expect),
+      errorResponse
+    );
   }
-  bodyText(expect: Parameters<typeof matchBodyText>[1], errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ request }) => matchBodyText(request, expect), errorResponse);
+  bodyText(
+    expect: Parameters<typeof matchBodyText>[1],
+    errorResponse?: HttpResponse<any>
+  ) {
+    return this.resolver(
+      async ({ request }) => matchBodyText(request, expect),
+      errorResponse
+    );
   }
-  bodyFormData(expect: Parameters<typeof matchBodyFormData>[1], errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ request }) => matchBodyFormData(request, expect), errorResponse);
+  bodyFormData(
+    expect: Parameters<typeof matchBodyFormData>[1],
+    errorResponse?: HttpResponse<any>
+  ) {
+    return this.resolver(
+      async ({ request }) => matchBodyFormData(request, expect),
+      errorResponse
+    );
   }
-  bodyBytes(expect: Parameters<typeof matchBodyBytes>[1], errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ request }) => matchBodyBytes(request, expect), errorResponse);
+  bodyBytes(
+    expect: Parameters<typeof matchBodyBytes>[1],
+    errorResponse?: HttpResponse<any>
+  ) {
+    return this.resolver(
+      async ({ request }) => matchBodyBytes(request, expect),
+      errorResponse
+    );
   }
 
-  headers(expect: Parameters<typeof matchHeaders>[1], errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ request }) => matchHeaders(request, expect), errorResponse);
+  headers(
+    expect: Parameters<typeof matchHeaders>[1],
+    errorResponse?: HttpResponse<any>
+  ) {
+    return this.resolver(
+      async ({ request }) => matchHeaders(request, expect),
+      errorResponse
+    );
   }
 
-  params(expect: Parameters<typeof matchPathParams>[1], errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ params }) => matchPathParams(params, expect), errorResponse);
+  params(
+    expect: Parameters<typeof matchPathParams>[1],
+    errorResponse?: HttpResponse<any>
+  ) {
+    return this.resolver(
+      async ({ params }) => matchPathParams(params, expect),
+      errorResponse
+    );
   }
 
-  searchParams(expect: Parameters<typeof matchSearchParams>[1], strict?: boolean, errorResponse?: HttpResponse<any>) {
-    return this.resolver(async ({ request }) => matchSearchParams(request, expect, strict), errorResponse);
+  searchParams(
+    expect: Parameters<typeof matchSearchParams>[1],
+    strict?: boolean,
+    errorResponse?: HttpResponse<any>
+  ) {
+    return this.resolver(
+      async ({ request }) => matchSearchParams(request, expect, strict),
+      errorResponse
+    );
   }
 
   resolve(resolver: HttpResponseResolver): ReturnType<typeof this.handler> {
@@ -91,11 +145,16 @@ class Resolver {
 }
 
 export const http = {
-  all: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.all).withURL(url).withOptions(options),
-  head: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.head).withURL(url).withOptions(options),
-  get: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.get).withURL(url).withOptions(options),
-  post: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.post).withURL(url).withOptions(options),
-  put: (url: string, options?: RequestHandlerOptions) => new Resolver(mswHTTP.put).withURL(url).withOptions(options),
+  all: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.all).withURL(url).withOptions(options),
+  head: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.head).withURL(url).withOptions(options),
+  get: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.get).withURL(url).withOptions(options),
+  post: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.post).withURL(url).withOptions(options),
+  put: (url: string, options?: RequestHandlerOptions) =>
+    new Resolver(mswHTTP.put).withURL(url).withOptions(options),
   delete: (url: string, options?: RequestHandlerOptions) =>
     new Resolver(mswHTTP.delete).withURL(url).withOptions(options),
   patch: (url: string, options?: RequestHandlerOptions) =>

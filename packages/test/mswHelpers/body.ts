@@ -34,7 +34,9 @@ export const matchBodyFormData = async (
   const actualBody = await request.clone().formData();
 
   if (typeof expect === "function") {
-    return (expect as (req: FormData) => boolean | HttpResponse<any>)(actualBody);
+    return (expect as (req: FormData) => boolean | HttpResponse<any>)(
+      actualBody
+    );
   }
 
   for (const [key, value] of actualBody.entries()) {
@@ -48,12 +50,16 @@ export const matchBodyFormData = async (
 
 export const matchBodyBytes = async (
   request: Request,
-  expect: Uint8Array<ArrayBuffer> | ((req: Uint8Array<ArrayBuffer>) => boolean | HttpResponse<any>)
+  expect:
+    | Uint8Array<ArrayBuffer>
+    | ((req: Uint8Array<ArrayBuffer>) => boolean | HttpResponse<any>)
 ): Promise<boolean | HttpResponse<any>> => {
   const actualBody = new Uint8Array(await request.clone().arrayBuffer());
 
   if (typeof expect === "function") {
-    return (expect as (req: Uint8Array<ArrayBuffer>) => boolean | HttpResponse<any>)(actualBody);
+    return (
+      expect as (req: Uint8Array<ArrayBuffer>) => boolean | HttpResponse<any>
+    )(actualBody);
   }
 
   return isEqual(actualBody, expect as Uint8Array<ArrayBuffer>);

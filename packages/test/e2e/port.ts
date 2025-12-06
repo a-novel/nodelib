@@ -1,5 +1,6 @@
-import { getRandomPort } from "get-port-please";
 import fs from "node:fs";
+
+import { getRandomPort } from "get-port-please";
 
 function normalizeInput(input: string): string {
   return (

@@ -5,7 +5,9 @@ import type { ZodType } from "zod";
 /**
  * Check the response status, and throw an HttpError if not ok (2xx).
  */
-export async function handleHttpResponse(response: Response): Promise<Response> {
+export async function handleHttpResponse(
+  response: Response
+): Promise<Response> {
   if (!response.ok) {
     throw await newHttpError(response);
   }

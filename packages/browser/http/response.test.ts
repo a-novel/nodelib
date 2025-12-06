@@ -2,6 +2,7 @@ import { newHttpError } from "./error";
 import { decodeHttpResponse, handleHttpResponse } from "./response";
 
 import { describe, expect, it } from "vitest";
+
 import { z } from "zod";
 
 describe("handleHttpResponse", () => {
