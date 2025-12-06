@@ -13,13 +13,17 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "pnpm build:node && pnpm build:browser && pnpm types:node && pnpm types:browser",
-    "build:browser": "rm -rf ./packages/browser/dist && vite build --outDir ./packages/browser/dist -c packages/browser/vite.config.ts",
-    "build:node": "rm -rf ./packages/test/dist && vite build --outDir ./packages/test/dist -c packages/test/vite.config.ts",
+    "build": "pnpm build:browser && pnpm build:config && pnpm build:node",
+    "build:browser": "pnpm compile:browser && pnpm types:browser",
+    "build:config": "pnpm compile:config && pnpm types:config",
+    "build:node": "pnpm compile:node && pnpm types:node",
+    "compile:browser": "rm -rf ./packages/browser/dist && vite build --outDir ./packages/browser/dist -c packages/browser/vite.config.ts",
+    "compile:config": "rm -rf ./packages/configs/dist && vite build --outDir ./packages/configs/dist -c packages/configs/vite.config.ts",
+    "compile:node": "rm -rf ./packages/test/dist && vite build --outDir ./packages/test/dist -c packages/test/vite.config.ts",
     "format": "prettier --write . --config prettier.config.ts",
     "preinstall": "npx only-allow pnpm",
     "lint": "pnpm lint:stylecheck && pnpm lint:typecheck && pnpm lint:eslint",
-    "lint:ci": "pnpm build:browser && pnpm lint",
+    "lint:ci": "pnpm build:config && pnpm build:browser && pnpm lint",
     "lint:eslint": "eslint .",
     "lint:stylecheck": "prettier --check . --config prettier.config.ts",
     "lint:typecheck": "pnpm lint:typecheck:browser && pnpm lint:typecheck:configs && pnpm lint:typecheck:test",
@@ -30,8 +34,9 @@
     "publish:minor": "pnpm version minor --workspaces --workspaces-update=false --no-git-tag-version && git add -A && git commit -m \"$(node -p \"require('./package.json').version\")\" && git tag v$(node -p \"require('./package.json').version\") && git push && git push --tags",
     "publish:patch": "pnpm version patch --workspaces --workspaces-update=false --no-git-tag-version && git add -A && git commit -m \"$(node -p \"require('./package.json').version\")\" && git tag v$(node -p \"require('./package.json').version\") && git push && git push --tags",
     "test": "vitest run",
-    "test:ci": "pnpm build:browser && pnpm test",
+    "test:ci": "pnpm build:config && pnpm build:browser && pnpm test",
     "types:browser": "tsc --build packages/browser/tsconfig.build.json",
+    "types:config": "tsc --build packages/configs/tsconfig.build.json",
     "types:node": "tsc --build packages/test/tsconfig.build.json"
   },
   "devDependencies": {

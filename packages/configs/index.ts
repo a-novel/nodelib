@@ -1,2 +1,2 @@
-export * from "./prettier-base.ts";
-export * from "./eslint-base.ts";
+export * from "./prettier-base";
+export * from "./eslint-base";

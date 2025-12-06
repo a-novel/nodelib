@@ -28,12 +28,13 @@ Create a `.npmrc` file in the root of your project if it doesn't exist, and make
 //npm.pkg.github.com/:_authToken=${YOUR_PERSONAL_ACCESS_TOKEN}
 ```
 
-Then, install the package using pnpm:
+Then, install the package using pnpm (you can install any package independently):
 
 ```bash
 # pnpm config set auto-install-peers true
 #  Or
 # pnpm config set auto-install-peers true --location project
 pnpm add -D @a-novel/nodelib-test
+pnpm add -D @a-novel/nodelib-config
 pnpm add @a-novel/nodelib-browser
 ```
