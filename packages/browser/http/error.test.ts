@@ -24,9 +24,7 @@ describe("HttpError", () => {
       const err = await newHttpError(response);
 
       expect(err.status).toBe(404);
-      expect(err.message).toBe(
-        "request failed with status 404: failed to decode response: bad"
-      );
+      expect(err.message).toBe("request failed with status 404: failed to decode response: bad");
     });
   });
 

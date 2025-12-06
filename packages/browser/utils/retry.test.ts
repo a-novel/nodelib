@@ -111,9 +111,7 @@ describe("retry", () => {
           throw new Error("fail 3");
         }
       );
-      const onFailure = vi.fn(
-        (err: unknown) => `failed: ${(err as Error).message}`
-      );
+      const onFailure = vi.fn((err: unknown) => `failed: ${(err as Error).message}`);
       const retried = retry(callback.call.bind(callback), {
         retries: 2,
         delay: 10,

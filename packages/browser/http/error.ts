@@ -17,9 +17,7 @@ export class HttpError extends Error {
 }
 
 export async function newHttpError(response: Response): Promise<HttpError> {
-  const text = await response
-    .text()
-    .catch((err) => `failed to decode response: ${err.message}`);
+  const text = await response.text().catch((err) => `failed to decode response: ${err.message}`);
   return new HttpError(response.status, text);
 }
 
@@ -30,9 +28,6 @@ export function isHttpError(error: unknown): error is HttpError {
 /**
  * Check if the given error is an HttpError with one of the given status codes.
  */
-export function isHttpStatusError(
-  error: unknown,
-  ...status: number[]
-): boolean {
+export function isHttpStatusError(error: unknown, ...status: number[]): boolean {
   return isHttpError(error) && status.includes(error.status);
 }

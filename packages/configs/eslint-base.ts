@@ -18,9 +18,7 @@ export interface EslintOptions {
   customRules?: ConfigWithExtends;
 }
 
-export function Eslint(
-  opts: EslintOptions = {}
-): Parameters<typeof defineConfig> {
+export function Eslint(opts: EslintOptions = {}): Parameters<typeof defineConfig> {
   let customRules: ConfigWithExtends = {
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
@@ -43,10 +41,7 @@ export function Eslint(
 
   // Only ignore links without resolve in lib mode, as they can be generic, reusable elements.
   if (opts.svelte && opts.isLib) {
-    customRules.rules!["svelte/no-navigation-without-resolve"] = [
-      "error",
-      { ignoreLinks: true },
-    ];
+    customRules.rules!["svelte/no-navigation-without-resolve"] = ["error", { ignoreLinks: true }];
   }
 
   if (opts.customRules) {
@@ -65,9 +60,7 @@ export function Eslint(
 
   // Make sure to insert rules in the correct order.
   const sortedRules: Record<string, ConfigWithExtends[]> = {
-    ignoreRules: [
-      globalIgnores(["**/dist/**", "**/.*/**", ...(opts.ignores ?? [])]),
-    ],
+    ignoreRules: [globalIgnores(["**/dist/**", "**/.*/**", ...(opts.ignores ?? [])])],
     langRules: [js.configs.recommended, ...ts.configs.recommended],
     frameworkRules: [],
     customRules: [customRules],
@@ -95,9 +88,7 @@ export function Eslint(
   }
 
   if (opts.storybook) {
-    sortedRules.frameworkRules.push(
-      ...(storybook.configs["flat/recommended"] as ConfigWithExtends[])
-    );
+    sortedRules.frameworkRules.push(...(storybook.configs["flat/recommended"] as ConfigWithExtends[]));
   }
 
   return [

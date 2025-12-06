@@ -1,12 +1,6 @@
-export type RetryFailureFn<T, Params extends unknown[]> = (
-  error: unknown,
-  ...params: Params
-) => T;
+export type RetryFailureFn<T, Params extends unknown[]> = (error: unknown, ...params: Params) => T;
 
-function defaultRetryFailureFn<T, Params extends unknown[]>(
-  err: unknown,
-  ..._: Params
-): T {
+function defaultRetryFailureFn<T, Params extends unknown[]>(err: unknown, ..._: Params): T {
   throw err;
 }
 

@@ -7,9 +7,7 @@ export interface PrettierOptions {
   sql?: boolean;
 }
 
-export function Prettier(
-  opts: PrettierOptions = {}
-): Config & SortImportsConfig & Partial<SqlOptions> {
+export function Prettier(opts: PrettierOptions = {}): Config & SortImportsConfig & Partial<SqlOptions> {
   const baseConfig: Config & SortImportsConfig & Partial<SqlOptions> = {
     useTabs: false,
     tabWidth: 2,
@@ -29,10 +27,7 @@ export function Prettier(
       "<THIRD_PARTY_MODULES>",
     ],
     importOrderSeparation: true,
-    plugins: [
-      "@trivago/prettier-plugin-sort-imports",
-      "prettier-plugin-packagejson",
-    ],
+    plugins: ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-packagejson"],
     overrides: [],
     htmlWhitespaceSensitivity: "strict",
   };

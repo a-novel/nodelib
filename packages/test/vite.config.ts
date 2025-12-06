@@ -40,8 +40,7 @@ export default defineConfig({
       output: {
         format: "es",
         entryFileNames: (chunkInfo) => {
-          const entryName =
-            chunkInfo.name === "index" ? "index" : `${chunkInfo.name}/index`;
+          const entryName = chunkInfo.name === "index" ? "index" : `${chunkInfo.name}/index`;
           return `${entryName}.es.js`;
         },
       },

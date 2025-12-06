@@ -5,9 +5,7 @@ export const matchHeaders = async (
   expect: Headers | ((req: Headers) => Promise<boolean | HttpResponse<any>>)
 ): Promise<boolean | HttpResponse<any>> => {
   if (typeof expect === "function") {
-    return (expect as (req: Headers) => Promise<boolean | HttpResponse<any>>)(
-      request.headers
-    );
+    return (expect as (req: Headers) => Promise<boolean | HttpResponse<any>>)(request.headers);
   }
 
   for (const [key, value] of Object.entries(expect)) {
