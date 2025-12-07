@@ -1,4 +1,4 @@
-import { createNetworkFixture, type NetworkFixture } from "@msw/playwright";
+import { type NetworkFixture, createNetworkFixture } from "@msw/playwright";
 import * as crypto from "crypto";
 import * as fs from "fs";
 import * as path from "path";

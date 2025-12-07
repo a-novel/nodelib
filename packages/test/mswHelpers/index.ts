@@ -4,7 +4,7 @@ import { matchPathParams } from "./path_params";
 import { ResolverFn } from "./resolver";
 import { matchSearchParams } from "./search_params";
 
-import { http as mswHTTP, HttpRequestHandler, HttpResponse, HttpResponseResolver, RequestHandlerOptions } from "msw";
+import { HttpRequestHandler, HttpResponse, HttpResponseResolver, RequestHandlerOptions, http as mswHTTP } from "msw";
 
 class Resolver {
   private readonly handler: HttpRequestHandler;
