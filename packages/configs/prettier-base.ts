@@ -27,17 +27,20 @@ export function Prettier(opts: PrettierOptions = {}): Config & SortImportsConfig
       "<THIRD_PARTY_MODULES>",
     ],
     importOrderSeparation: true,
+    importOrderSortSpecifiers: true,
     plugins: ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-packagejson"],
     overrides: [],
     htmlWhitespaceSensitivity: "strict",
   };
 
   if (opts.svelte) {
-    baseConfig.plugins!.push("prettier-plugin-svelte");
+    baseConfig.plugins!.unshift("prettier-plugin-svelte");
+    baseConfig.plugins!.push("prettier-plugin-css-order");
     baseConfig.overrides!.push({
       files: "*.svelte",
       options: {
         parser: "svelte",
+        plugins: ["prettier-plugin-svelte", "@trivago/prettier-plugin-sort-imports", "prettier-plugin-css-order"],
       },
     });
   }
