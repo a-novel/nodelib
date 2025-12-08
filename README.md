@@ -24,7 +24,7 @@ Shared Node.js libraries.
 Create a `.npmrc` file in the root of your project if it doesn't exist, and make sure it contains the following:
 
 ```ini
-@a-novel:registry=https://npm.pkg.github.com
+@a-novel-kit:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${YOUR_PERSONAL_ACCESS_TOKEN}
 ```
 
