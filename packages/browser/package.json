@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/a-novel-kit/nodelib.git"
   },
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "type": "module",
   "exports": {
     "./http": {
