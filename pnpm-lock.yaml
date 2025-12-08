@@ -8,7 +8,7 @@ importers:
 
   .:
     devDependencies:
-      '@a-novel/nodelib-config':
+      '@a-novel-kit/nodelib-config':
         specifier: '*'
         version: link:packages/configs
       '@eslint/config-helpers':
@@ -142,7 +142,7 @@ importers:
 
   packages/test:
     dependencies:
-      '@a-novel/nodelib-browser':
+      '@a-novel-kit/nodelib-browser':
         specifier: '*'
         version: link:../browser
       '@msw/playwright':

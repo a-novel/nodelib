@@ -1,10 +1,10 @@
 {
-  "name": "@a-novel/nodelib-test",
+  "name": "@a-novel-kit/nodelib-test",
   "version": "1.3.0",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-novel/nodelib.git"
+    "url": "git+https://github.com/a-novel-kit/nodelib.git"
   },
   "license": "AGPL-3.0",
   "type": "module",
@@ -59,7 +59,7 @@
     "vitest": "^4.0.0"
   },
   "peerDependencies": {
-    "@a-novel/nodelib-browser": "*",
+    "@a-novel-kit/nodelib-browser": "*",
     "@msw/playwright": "^0.4.2",
     "@tanstack/react-query": "^5.83.0",
     "@testing-library/react": "^16.3.0",

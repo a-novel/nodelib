@@ -7,13 +7,13 @@ Shared Node.js libraries.
 
 <hr />
 
-![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/a-novel/nodelib)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/a-novel/nodelib)
+![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/a-novel-kit/nodelib)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/a-novel-kit/nodelib)
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/a-novel/nodelib/main.yaml)
-[![codecov](https://codecov.io/gh/a-novel/nodelib/graph/badge.svg?token=Vyqgkqb9LT)](https://codecov.io/gh/a-novel/nodelib)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/a-novel-kit/nodelib/main.yaml)
+[![codecov](https://codecov.io/gh/a-novel-kit/nodelib/graph/badge.svg?token=0APmxMlooh)](https://codecov.io/gh/a-novel-kit/nodelib)
 
-![Coverage graph](https://codecov.io/gh/a-novel/nodelib/graphs/sunburst.svg?token=Vyqgkqb9LT)
+![Coverage graph](https://codecov.io/gh/a-novel-kit/nodelib/graphs/sunburst.svg?token=0APmxMlooh)
 
 ## Installation
 
@@ -34,7 +34,7 @@ Then, install the package using pnpm (you can install any package independently)
 # pnpm config set auto-install-peers true
 #  Or
 # pnpm config set auto-install-peers true --location project
-pnpm add -D @a-novel/nodelib-test
-pnpm add -D @a-novel/nodelib-config
-pnpm add @a-novel/nodelib-browser
+pnpm add -D @a-novel-kit/nodelib-test
+pnpm add -D @a-novel-kit/nodelib-config
+pnpm add @a-novel-kit/nodelib-browser
 ```

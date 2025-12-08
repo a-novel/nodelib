@@ -19,5 +19,5 @@ Then, install the package using pnpm:
 # pnpm config set auto-install-peers true
 #  Or
 # pnpm config set auto-install-peers true --location project
-pnpm add @a-novel/nodelib-browser
+pnpm add @a-novel-kit/nodelib-browser
 ```

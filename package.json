@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-novel/nodelib.git"
+    "url": "git+https://github.com/a-novel-kit/nodelib.git"
   },
   "license": "AGPL-3.0",
   "type": "module",
@@ -40,7 +40,7 @@
     "types:node": "tsc --build packages/test/tsconfig.build.json"
   },
   "devDependencies": {
-    "@a-novel/nodelib-config": "*",
+    "@a-novel-kit/nodelib-config": "*",
     "@eslint/config-helpers": "^0.5.0",
     "@eslint/js": "^9.31.0",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",

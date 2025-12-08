@@ -10,7 +10,7 @@ const _dirname = path.dirname(url.fileURLToPath(import.meta.url));
 export default defineConfig({
   resolve: {
     alias: {
-      "@a-novel/nodelib-browser": path.resolve(_dirname, "../browser"),
+      "@a-novel-kit/nodelib-browser": path.resolve(_dirname, "../browser"),
     },
   },
   build: {
