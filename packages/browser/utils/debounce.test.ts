@@ -25,6 +25,20 @@ describe("debounce", () => {
     expect(callback).toHaveBeenCalledTimes(2);
   });
 
+  it("cancels the call", async () => {
+    const callback = vi.fn();
+
+    const debouncer = new Debounce(10);
+    debouncer.call(callback);
+    await new Promise((resolve) => setTimeout(resolve, 5));
+    debouncer.call(callback); // This call is delayed for debouncing.
+    expect(callback).toHaveBeenCalledTimes(1);
+    debouncer.cancel(); // Cancels the pending call.
+    await new Promise((resolve) => setTimeout(resolve, 20));
+
+    expect(callback).toHaveBeenCalledTimes(1);
+  });
+
   it("ignores calls that are too close", async () => {
     const callback = vi.fn();
 
