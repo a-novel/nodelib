@@ -37,6 +37,18 @@ export class Debounce {
     return false;
   }
 
+  /**
+   * Cancels any pending delayed execution and resets the immediate execution state.
+   * This will clear any active timers, preventing the debounced function from being called
+   * if it was scheduled but not yet executed.
+   */
+  cancel() {
+    clearTimeout(this._timer);
+    clearTimeout(this._cooldownTimer);
+    this._cooldownTimer = undefined;
+    this._immediate = true;
+  }
+
   call(fn: () => void) {
     clearTimeout(this._timer);
     // To prevent initial delay, the first call after some time is immediately executed and activates the cooldown
