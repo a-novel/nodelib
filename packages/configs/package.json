@@ -31,7 +31,7 @@
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-storybook": "^10.1.4",
+    "eslint-plugin-storybook": "^10.1.10",
     "eslint-plugin-svelte": "^3.13.1",
     "prettier": "^3.7.4",
     "prettier-plugin-css-order": "^2.1.2",
@@ -61,7 +61,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.26.1",
+  "packageManager": "pnpm@10.26.0",
   "engines": {
     "node": ">=24.0.0",
     "npm": ">=10.9.2"
