@@ -81,6 +81,8 @@ export function Eslint(opts: EslintOptions = {}): Parameters<typeof defineConfig
         },
       },
     });
+    // We use it for translations; keep as a warning for visibility and safety.
+    customRules.rules!["svelte/no-at-html-tags"] = "warn";
   }
 
   if (opts.gitIgnorePath) {
