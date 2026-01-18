@@ -49,7 +49,7 @@ importers:
         version: 3.8.0
       prettier-plugin-packagejson:
         specifier: ^2.5.19
-        version: 2.5.21(prettier@3.8.0)
+        version: 2.5.22(prettier@3.8.0)
       typescript:
         specifier: ^5.8.3
         version: 5.9.3
@@ -122,7 +122,7 @@ importers:
         version: 2.1.2(postcss@8.5.6)(prettier@3.8.0)
       prettier-plugin-packagejson:
         specifier: ^2.5.20
-        version: 2.5.21(prettier@3.8.0)
+        version: 2.5.22(prettier@3.8.0)
       prettier-plugin-sql:
         specifier: ^0.19.2
         version: 0.19.2(prettier@3.8.0)
@@ -1386,8 +1386,8 @@ packages:
   get-port-please@3.2.0:
     resolution: {integrity: sha512-I9QVvBw5U/hw3RmWpYKRumUeaDgxTPd401x364rLmWBJcOQ753eov1eTgzDqRG9bqFIfDc7gfzcQEWrUri3o1A==}
 
-  git-hooks-list@4.1.1:
-    resolution: {integrity: sha512-cmP497iLq54AZnv4YRAEMnEyQ1eIn4tGKbmswqwmFV4GBnAqE8NLtWxxdXa++AalfgL5EBH4IxTPyquEuGY/jA==}
+  git-hooks-list@4.2.0:
+    resolution: {integrity: sha512-+6ebmUMwhxrl6CYl5n/d4RqCVvyDMK4yvvLJVPjUfLWzhaM6heksAh1uK9KqwuhQTZie4nmN9pf3X3ORRn40kg==}
 
   glob-parent@6.0.2:
     resolution: {integrity: sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==}
@@ -1785,8 +1785,8 @@ packages:
     peerDependencies:
       prettier: 3.x
 
-  prettier-plugin-packagejson@2.5.21:
-    resolution: {integrity: sha512-d9ivsysb1SeRaKDhjf6Hi7jBGnP4TVsh7DeVi8N5HtHJ5vwD7YHcQIuy6jRkr2qGW/VKbrEVDWVMODuqcZuz8Q==}
+  prettier-plugin-packagejson@2.5.22:
+    resolution: {integrity: sha512-G6WalmoUssKF8ZXkni0+n4324K+gG143KPysSQNW+FrR0XyNb3BdRxchGC/Q1FE/F702p7/6KU7r4mv0WSWbzA==}
     peerDependencies:
       prettier: '>= 1.16.0'
     peerDependenciesMeta:
@@ -1914,8 +1914,8 @@ packages:
   sort-object-keys@2.1.0:
     resolution: {integrity: sha512-SOiEnthkJKPv2L6ec6HMwhUcN0/lppkeYuN1x63PbyPRrgSPIuBJCiYxYyvWRTtjMlOi14vQUCGUJqS6PLVm8g==}
 
-  sort-package-json@3.5.0:
-    resolution: {integrity: sha512-moY4UtptUuP5sPuu9H9dp8xHNel7eP5/Kz/7+90jTvC0IOiPH2LigtRM/aSFSxreaWoToHUVUpEV4a2tAs2oKQ==}
+  sort-package-json@3.6.0:
+    resolution: {integrity: sha512-fyJsPLhWvY7u2KsKPZn1PixbXp+1m7V8NWqU8CvgFRbMEX41Ffw1kD8n0CfJiGoaSfoAvbrqRRl/DcHO8omQOQ==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3379,7 +3379,7 @@ snapshots:
 
   get-port-please@3.2.0: {}
 
-  git-hooks-list@4.1.1: {}
+  git-hooks-list@4.2.0: {}
 
   glob-parent@6.0.2:
     dependencies:
@@ -3750,9 +3750,9 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  prettier-plugin-packagejson@2.5.21(prettier@3.8.0):
+  prettier-plugin-packagejson@2.5.22(prettier@3.8.0):
     dependencies:
-      sort-package-json: 3.5.0
+      sort-package-json: 3.6.0
     optionalDependencies:
       prettier: 3.8.0
 
@@ -3883,11 +3883,11 @@ snapshots:
 
   sort-object-keys@2.1.0: {}
 
-  sort-package-json@3.5.0:
+  sort-package-json@3.6.0:
     dependencies:
       detect-indent: 7.0.2
       detect-newline: 4.0.1
-      git-hooks-list: 4.1.1
+      git-hooks-list: 4.2.0
       is-plain-obj: 4.1.0
       semver: 7.7.3
       sort-object-keys: 2.1.0
